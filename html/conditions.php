@@ -41,8 +41,9 @@
         } else {
             echo "<br>Nothing to do, room is neat.";
         }
-        //**************************************************************** 
         */
+        //**************************************************************** 
+        /*
         // 2. "Different greetings according to time" Exercise
 
         $now = date("H:i"); // How to get the current time in PHP ? Google is your friend ;-)
@@ -63,7 +64,20 @@
             echo "Good night !";
         }
         //**************************************************************** 
-    ?>
-    
+        */
+        // 3. "Different greetings according to age" Exercise
+
+        if (isset($_GET['age'])){
+            // Form processing
+
+        }
+        // Form (incomplete)
+        <form method="get" action="">
+            <label for="age">...</label>
+            <input type="" name="age">
+            <input type="submit" name="submit" value="Greet me now">
+        </form>
+        //**************************************************************** 
+    ?> 
 </body>
 </html>
