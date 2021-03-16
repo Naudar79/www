@@ -38,18 +38,19 @@ if ($adulte AND $nom=='Bernard') { // AND = && ou OR = ||
 if ($adulte) {
 ?>
 
-<p>Exemple de texte en HTML imbriquée entre la condition en PHP</p>
+<h4>Exemple de texte en HTML imbriquée entre la condition en PHP</h4>
 
 <?php
+echo 'blabla ';
 }
-
+//**************************
 switch ($age) {
     case '4':
         echo 'tu as 4 ans';
         break;
     case '16':
         echo 'tu as 16 ans';
-        break
+        break;
     default:
         echo 'tu es majeur';
         break;
