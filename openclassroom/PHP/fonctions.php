@@ -21,5 +21,8 @@
  function bonjour($nom){ //Declaration de la fonction
     echo 'Bonjour ' . $nom;
  }
-  bonjour('Marie');
+  bonjour('Marie'); // Appel de la fonction
 ?>
+
+
+
