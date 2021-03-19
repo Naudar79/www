@@ -24,5 +24,9 @@
   bonjour('Marie'); // Appel de la fonction
 ?>
 
-
+<?php
+strlen // Retourne la longueur d'une chaîne
+str_replace // Remplace une chaiine de caractères 
+str_shuffle // 
+?>
 
