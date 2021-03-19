@@ -27,6 +27,7 @@
 <?php
 strlen // Retourne la longueur d'une chaîne
 str_replace // Remplace une chaiine de caractères 
-str_shuffle // 
+str_shuffle // Mélanger les lettres d'une phrase de façon alétoire
+strlower // Met tous les caractères en minuscule
 ?>
 
