@@ -10,13 +10,13 @@ catch(Exception $e)
         die('Erreur : '.$e->getMessage());
 }
 
-$resultat = $bdd->query('SELECT * FROM meteo');
+$resultat = $bdd->query('SELECT * FROM météo');
 
 $donnees = $resultat->fetch();
 
 while ($donnees = $resultat->fetch())
 {
-  echo $donnees['nom_de_la_colonne'];
+  echo $donnees['ville'], $donnees['haut'], $donnees['bas'];
 }
 
 $resultat->closeCursor();
