@@ -13,10 +13,10 @@ try
 	// On se connecte à MySQL
 	$bdd = new PDO('mysql:host=localhost;dbname=becode;charset=utf8', 'root', '');
 }
-catch(Exception $e)
+catch(Exception $error)
 {
 	// En cas d'erreur, on affiche un message et on arrête tout
-        die('Erreur : '.$e->getMessage());
+        die('Erreur : '.$error->getMessage());
 }
 
 $resultat = $bdd->query('SELECT * FROM météo');
@@ -60,7 +60,7 @@ while ($donnees = $resultat->fetch())
         <label for="bas">Bas</label>
         <input type="text" name="bas" id="bas" paceholder="Bas">
     </div>
-    <input type="submit" name="submit" value="submit">
+    <input type="submit" name="submit" value="Submit">
 </form>
 </div>
 </body>
