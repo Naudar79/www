@@ -47,7 +47,7 @@ while ($donnees = $resultat->fetch())
  $resultat->closeCursor();
 ?>
 <div>
-<form action="index.php" method="post">
+<form action="index.php" method="POST" enctype="multipart/form-data">
     <div>
         <label for="ville">Ville</label>
         <input type="text" name="ville" id="ville" paceholder="Ville">
@@ -62,7 +62,9 @@ while ($donnees = $resultat->fetch())
     </div>
     <input type="submit" name="submit" value="Submit">
 </form>
-<?php echo $_POST['ville' . ' ' . 'haut' . ' ' . 'bas']?>
+<?php //pour éviter ce warning, il faut tester avec un isset si on a déjà cliquer sur le bouton et si pas le mettre à blanc
+    echo $_POST['ville'];
+?>
 </div>
 </body>
 </html>
