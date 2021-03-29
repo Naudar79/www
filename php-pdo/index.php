@@ -62,6 +62,7 @@ while ($donnees = $resultat->fetch())
     </div>
     <input type="submit" name="submit" value="Submit">
 </form>
+<?php echo $_POST['ville' . ' ' . 'haut' . ' ' . 'bas']?>
 </div>
 </body>
 </html>
