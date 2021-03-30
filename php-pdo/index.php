@@ -20,8 +20,6 @@ catch(Exception $error)
         die('Erreur : '.$error->getMessage());
 }
 
-
-
     if (isset($_POST['ville'])) {
         $ville = $_POST['ville'];
         $haut = $_POST['haut'];
