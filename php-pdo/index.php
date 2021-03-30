@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+
 <?php
 try
 {
@@ -19,13 +20,35 @@ catch(Exception $error)
         die('Erreur : '.$error->getMessage());
 }
 
+
+
+    if (isset($_POST['ville'])) {
+        $ville = $_POST['ville'];
+        $haut = $_POST['haut'];
+        $bas = $_POST['bas'];
+        $resultat = $bdd->query('SELECT * FROM météo');
+        $donnees = $resultat->fetch();
+        $requete = $bdd->prepare("INSERT INTO météo (ville, haut, bas) VALUES ('$ville',$haut,$bas)"); 
+        $requete->execute();
+        $resultat->closeCursor();
+        if ($resultat){
+        $ville='';
+        $haut='';
+        $bas='';
+        } else {
+        echo "<p>Erreur</p>";
+        }
+    }else{
+        $ville='';
+        $haut='';
+        $bas='';
+    }
 $resultat = $bdd->query('SELECT * FROM météo');
-
 $donnees = $resultat->fetch();
-
 while ($donnees = $resultat->fetch())
 {
 ?>
+
 <div>
  <table>
   <tr>
@@ -50,21 +73,19 @@ while ($donnees = $resultat->fetch())
 <form action="index.php" method="POST" enctype="multipart/form-data">
     <div>
         <label for="ville">Ville</label>
-        <input type="text" name="ville" id="ville" paceholder="Ville">
+        <input type="text" name="ville" id="ville" value="<?php echo $ville;?>">
     </div>
     <div>
         <label for="haut">Haut</label>
-        <input type="text" name="haut" id="haut" paceholder="Haut">
+        <input type="text" name="haut" id="haut" value="<?php echo $haut;?>">
     </div>
     <div>
         <label for="bas">Bas</label>
-        <input type="text" name="bas" id="bas" paceholder="Bas">
+        <input type="text" name="bas" id="bas" value="<?php echo $bas;?>">
     </div>
     <input type="submit" name="submit" value="Submit">
 </form>
-<?php //pour éviter ce warning, il faut tester avec un isset si on a déjà cliquer sur le bouton et si pas le mettre à blanc
-    echo $_POST['ville'];
-?>
+
 </div>
 </body>
 </html>
