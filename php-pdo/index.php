@@ -19,6 +19,17 @@ catch(Exception $error)
 	// En cas d'erreur, on affiche un message et on arrête tout
         die('Erreur : '.$error->getMessage());
 }
+    if (isset($_POST['delete'])){
+        $resultat = $bdd->query('SELECT * FROM météo');
+        //$donnees = $resultat->fetch();
+        while ($donnees = $resultat->fetch()){
+            if (isset($_POST['chkDel'.$donnees['id']])){
+                $requete = $bdd->prepare("DELETE FROM météo WHERE `ville` = :ville AND `haut` = :haut AND `bas` = :bas");
+                $requete->execute();
+                $resultat->closeCursor();
+            }
+        }
+    }
 
     if (isset($_POST['ville'])) {
         $ville = $_POST['ville'];
@@ -42,7 +53,7 @@ catch(Exception $error)
         $bas='';
     }
 $resultat = $bdd->query('SELECT * FROM météo');
-$donnees = $resultat->fetch();
+//$donnees = $resultat->fetch();
 ?>
 
 <form action="index.php" method="POST" enctype="multipart/form-data" name="delete">
@@ -66,11 +77,15 @@ while ($donnees = $resultat->fetch())
   </tr>
  </table>
 </div>
-</form>
+
 <?php
 }
  $resultat->closeCursor();
+
 ?>
+ <input type="submit" name="delete" value="Delete">
+</form>
+<hr>
 <div>
 <form action="index.php" method="POST" enctype="multipart/form-data">
     <div>
