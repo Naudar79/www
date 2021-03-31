@@ -43,14 +43,18 @@ catch(Exception $error)
     }
 $resultat = $bdd->query('SELECT * FROM météo');
 $donnees = $resultat->fetch();
+?>
+
+<form action="index.php" method="POST" enctype="multipart/form-data" name="delete">
+<?php
 while ($donnees = $resultat->fetch())
 {
 ?>
-
 <div>
  <table>
   <tr>
     <td>
+        <input type="checkbox" name="chkDel<?php echo $donnees['id'];?>" id="chkDel">
         <?php echo $donnees['ville'];?>
     </td>
     <td>
@@ -62,7 +66,7 @@ while ($donnees = $resultat->fetch())
   </tr>
  </table>
 </div>
-
+</form>
 <?php
 }
  $resultat->closeCursor();
