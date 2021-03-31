@@ -24,8 +24,10 @@ catch(Exception $error)
         //$donnees = $resultat->fetch();
         while ($donnees = $resultat->fetch()){
             if (isset($_POST['chkDel'.$donnees['id']])){
-                $requete = $bdd->prepare("DELETE FROM météo WHERE `ville` = :ville AND `haut` = :haut AND `bas` = :bas");
-                $requete->execute();
+                $requete= "DELETE FROM météo WHERE id=".$donnees['id'] ;
+                $result = $bdd->prepare($requete);
+                //echo $requete;
+                $result->execute();
                 $resultat->closeCursor();
             }
         }
