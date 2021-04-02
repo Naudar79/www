@@ -15,7 +15,6 @@ $donnees = $resultat->fetch();
 ?>
 
 
-
 <!DOCTYPE html>
 <html>
   <head>
